@@ -24,10 +24,18 @@ unsigned int zip(unsigned int n)
 
 int main()
 {
+	int j, c;
+	unsigned int t;
 	printf("\nfulfilled: Dyatlov Daniil\n\n");
-	int j;
-	unsigned int t = 0;
-	scanf("&ud", &t);
+	do
+	{
+		printf("insert the number(10):");
+		c = scanf("%d", &t);
+		rewind(stdin);
+		if (c != 1)
+			printf("Input error\n");
+	} while (c != 1);
+	printf("number entered(2):");
 	for (j = 31; j >= 0; j--)
 	{
 		if (t & (mask << j))
@@ -36,7 +44,7 @@ int main()
 			printf("0");
 	}
 	printf("\n");
-
+	printf("  coded number(2):");
 	for (j = 31; j >= 0; j--)
 	{
 		if (zip(t) & (mask << j))
@@ -45,6 +53,6 @@ int main()
 			printf("0");
 	}
 	printf("\n");
-
+	printf("coded number(10):%u\n", zip(t));
 	return 0;
 }
